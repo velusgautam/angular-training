@@ -1,0 +1,31 @@
+
+<h1>Books Catalogue</h1>
+<!-- Filters -->
+<div>
+    <label>Show:</label>
+    <button ng-click="booksToShow=2" ng-class="{active: booksToShow==2}">2</button>
+    <button ng-click="booksToShow=3" ng-class="{active: booksToShow==3}">3</button>
+    <button ng-click="booksToShow=books.length" ng-class="{active: booksToShow==books.length}">All</button>
+</div>
+<div>
+    <label>Sort by:</label>
+    <button ng-click="orderByField='title'" ng-class="{active: orderByField=='title'}">Title</button>
+    <button ng-click="orderByField='price'" ng-class="{active: orderByField=='price'}">Price(Low to High)</button>
+    <button ng-click="orderByField='-price'" ng-class="{active: orderByField=='-price'}">Price(High to Low)</button>
+</div>
+<!-- Filter end -->
+<!-- Books grid -->
+<div class="grid">
+    <div ng-repeat="book in books | orderBy:orderByField | limitTo:booksToShow " ng-class="{low: book.rating < 4, high: book.rating >= 4}">
+        <b>{{book.title | uppercase}}</b>
+        <br>
+        <i>{{book.author}}</i>
+        <br>{{book.price | currency:'&#8377;'}}
+        <br>{{book.rating}}
+        <br> <a ng-click="addToCart(book)">Add To Cart</a>
+        <br>
+        <button ng-click="rateUp(book)">&uarr;</button>
+        <button ng-click="rateDown(book)">&darr;</button>
+    </div>
+</div>
+<!-- Books grid end -->

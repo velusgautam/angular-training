@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="booksCart">
+
+<head>
+    <title>AngularJS Training</title>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="routes.js"></script>
+    <script src="controllers/bookCtrl.js"></script>
+    <script src="controllers/bookAddCtrl.js"></script>
+    <script src="controllers/menuCtrl.js"></script>
+    <script src="controllers/cartCtrl.js"></script>
+    <script src="controllers/loginCtrl.js"></script>
+    <script src="controllers/orderCtrl.js"></script>
+    <script src="services/bookService.js"></script>
+    <script src="services/cartService.js"></script>
+    <script src="services/orderService.js"></script>
+    <script src="services/loginService.js"></script>
+    <script src="services/authService.js"></script>
+    <script src="filters/titlecaseFilter.js"></script>
+    <script src="directives/ratingWidgetDirective.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">BooksCart</div>
+        <div class="menu" ng-controller="menuCtrl">
+            <a href="#/" ng-class="{active:isCurrent('/')}">Home</a>
+            <a href="#/book/new" ng-class="{active:isCurrent('/book/new')}">Add Book</a>
+            <a href="#/about" ng-class="{active:isCurrent('/about')}">About</a>
+            <a href="#/cart" ng-class="{active:isCurrent('/cart')}">Cart</a>
+            <a ng-if="userLoggedIn()" href="#/my-orders" ng-class="{active:isCurrent('/my-orders')}">My Orders</a>
+            <a ng-if="userLoggedIn()" ng-click="logout()" ng-class="{active:isCurrent('/login')}">Logout</a>
+            <a ng-if="!userLoggedIn()" href="#/login" ng-class="{active:isCurrent('/login')}">Login</a>
+        </div>
+    </div>
+    <div class="content" ng-view></div>
+</body>
+
+</html>
