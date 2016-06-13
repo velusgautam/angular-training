@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="booksCart">
+
+<head>
+    <title>Angular Training</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <h1>Angular Training</h1>
+    <div ng-controller="bookCtrl">
+		<div>
+			{{cart}}
+		</div>
+
+        <div class="grid">
+            <div ng-repeat="book in books">
+                <div><b>{{book.title}}</b></div>
+                <div><i>{{book.author}}</i></div>
+                <div>{{book.price}}</div>
+                <div>{{book.rating}}</div>
+                <div>
+                	<button ng-click="rateUp(book)">&uarr;</button>
+                	<button ng-click="rateDown(book)">&darr;</button>
+                </div>
+                <a ng-click="addToCart(book)">add to cart</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
