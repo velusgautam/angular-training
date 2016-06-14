@@ -28,7 +28,7 @@ angular
         };
 
         this.addBook = function(book) {
-            books.add(angular.copy(book));
+            books.push(angular.copy(book));
         };
 
         this.rateBookUp = function(book) {
