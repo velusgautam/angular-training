@@ -1,0 +1,24 @@
+<div class="cart">
+    <div ng-show="cart.items.length==0">Cart is empty!</div>
+    <table ng-show="cart.items.length!=0">
+        <tr>
+            <td>Item</td>
+            <td>Price</td>
+            <td>Qty</td>
+        </tr>
+        <tr ng-repeat="item in cart.items">
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.qty}}</td>
+        </tr>
+        <tr>
+            <td colspan="2">Total Price</td>
+            <td>{{cart.totalPrice}}</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                Last updated at {{cart.lastUpdatedAt | date:'dd/MM/yy hh:mm:ss'}}
+            </td>
+        </tr>
+    </table>
+</div>
