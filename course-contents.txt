@@ -1,0 +1,29 @@
+BASIC
+1. Basics of JavaScript
+2. Angular Basics
+3. Modules
+4. Controllers
+5. Inbuilt Directives
+6. 2-way Data Binding
+7. Forms
+8. Services
+9. Inbuilt Filters
+
+INTERMEDIATE
+10. Form Validations
+11. Basic Routing using ui-router 
+12. Custom Filters
+13. Communication with Servers
+14. Playing with headers
+15. Custom Directives
+
+ADVANCED
+16. Advanced Directives
+17. Directives from jquery plugins
+18. Interceptors
+19. Authentication
+20. Advanced Routing Concepts
+21. Unit Testing
+22. e2e Testing
+
+
