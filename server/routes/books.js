@@ -34,7 +34,7 @@ var booksApi = {
     }
 };
 
-var lastIdUsed = 2;
+var lastIdUsed = 4;
 
 function findById(id) {
     for (var i = 0; i < books.length; i++) {
@@ -56,22 +56,26 @@ var books = [{
         title: 'The Alcheimst',
         author: 'Paulo Cohelo',
         price: 20,
-        rating: 2
+        rating: 2,
+        id: 1
     }, {
         title: 'THE NIGHTINGALE',
         author: 'Paulo Cohelo',
         price: 10,
-        rating: 1
+        rating: 1,
+        id: 2
     }, {
         title: 'Harry Potter',
         author: 'J K Rowling',
         price: 50,
-        rating: 5
+        rating: 5,
+        id: 3
     }, {
         title: 'The monk who sold his ferrari',
         author: 'Robin Sharma',
         price: 30,
-        rating: 3
+        rating: 3,
+        id: 4
     }];
 
 module.exports = booksApi;
