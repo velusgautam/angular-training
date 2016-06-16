@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="booksCart">
+
+<head>
+    <title>Angular Training</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <script src="lib/jquery-1.11.3.min.js"></script>
+    <script src="lib/jquery-ui.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/bookCtrl.js"></script>
+    <script src="controllers/menuCtrl.js"></script>
+    <script src="controllers/addBookCtrl.js"></script>
+    <script src="controllers/cartCtrl.js"></script>
+    <script src="services/bookService.js"></script>
+    <script src="services/cartService.js"></script>
+    <script src="filters/titlecase.js"></script>
+    <script src="directives/starsWidget.js"></script>
+    <script src="directives/tabs.js"></script>
+    <script src="directives/slider.js"></script>
+    <script src="interceptors/tokenInterceptor.js"></script>
+</head>
+
+<body>
+    	<div class="header">
+    		<div class="logo">BooksCart</div>
+    		<div class="menu" ng-controller="menuCtrl">
+    			<a ui-sref="home" ng-class="{active: isCurrent('home')}">Home</a>
+    			<a ui-sref="about" ng-class="{active: isCurrent('about')}">About</a>
+    			<a ui-sref="new-book" ng-class="{active: isCurrent('new-book')}">Add a Book</a>
+    			<a ui-sref="cart" ng-class="{active: isCurrent('cart')}">Cart({{cart.items.length}})</a>
+    		</div>
+    	</div>
+		<div ui-view></div>
+    </div>
+</body>
+
+</html>

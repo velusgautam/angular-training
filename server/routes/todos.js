@@ -1,7 +1,16 @@
 var todosApi = {
 
     getAll: function(req, res) {
-        var allTodos = todos; // Spoof a DB call
+        var user = req.query.user;
+        var allTodos = todos;
+        if(user) {
+            allTodos = [];
+            for(var i=0; i<todos.length; i++) {
+                if(todos[i].user == user)
+                    allTodos.push(todos[i])
+            }
+        }
+         // Spoof a DB call
         res.json(allTodos);
     },
 
@@ -56,12 +65,14 @@ var todos = [{
     id: 1,
     label: 'Fix bulb',
     priority: 3,
-    done: false
+    done: false,
+    user: 'abhinav'
 }, {
     id: 2,
     label: 'Bring milk',
     priority: 1,
-    done: false
+    done: false,
+    user: 'abhinav'
 }, {
     id: 3,
     label: 'Pay internet bill',
