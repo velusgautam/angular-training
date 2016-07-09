@@ -11,7 +11,7 @@ BASIC
 
 INTERMEDIATE
 10. Form Validations
-11. Basic Routing using ui-router 
+11. Routing 
 12. Custom Filters
 13. Communication with Servers
 14. Playing with headers

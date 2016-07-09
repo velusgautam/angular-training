@@ -1,0 +1,21 @@
+<html ng-app="booksCart">
+    <head>
+        <title>Angular Training</title>
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <h1>My first angular app</h1>
+
+        <div ng-controller="bookCtrl">
+            <div>
+                <div><b>{{book.title}}</b></div>
+                <div><i>{{book.author}}</i></div>
+                <div>{{book.price}}</div>
+                <div>{{book.rating}}</div>
+                <hr/>
+            </div>
+        </div>
+
+    </body>
+</html>

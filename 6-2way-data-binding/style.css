@@ -1,0 +1,19 @@
+.high {
+    background-color: lightsalmon;
+}
+.low {
+    background-color: lightyellow;
+}
+.book {
+    padding: 5px;
+    border: 1px solid pink;
+    margin: 15px 5px;
+}
+img{
+    height: 11px;
+    width: 11px;
+}
+td {
+    background-color: lightgray;
+    padding: 3px;
+}

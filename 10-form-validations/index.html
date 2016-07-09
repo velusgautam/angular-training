@@ -1,0 +1,112 @@
+<html ng-app="booksCart">
+
+<head>
+    <title>Angular Training</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="bookCtrl.js"></script>
+    <script src="bookService.js"></script>
+    <script src="cartService.js"></script>
+</head>
+
+<body>
+    <h1>My first angular app</h1>
+
+    <div ng-controller="bookCtrl">
+        <div>
+            <h3>Add a book</h3>
+            <form name="addBookForm" ng-submit="addBook()">
+                <div>
+                    <label>Title</label>
+                    <input name="title" type="text" ng-model="newBook.title" required ng-minlength="4" />
+                    <span class="error" ng-show="addBookForm.$dirty && addBookForm.title.$error.required">
+                        Required.
+                    </span>
+                    <span class="error" ng-show="addBookForm.$dirty && addBookForm.title.$error.minlength">
+                        Minimum 4 characters.
+                    </span>
+                </div>
+                <div>
+                    <label>Author</label>
+                    <input name="author" type="text" ng-model="newBook.author" required/>
+                    <span class="error" ng-show="addBookForm.$dirty && addBookForm.author.$error.required">
+                        Required.
+                    </span>
+                </div>
+                <div>
+                    <label>Price</label>
+                    <input name="price" type="text" ng-model="newBook.price" required/>
+                    <span class="error" ng-show="addBookForm.$dirty && addBookForm.price.$error.required">
+                        Required.
+                    </span>
+                </div>
+                <div>
+                    <label>Rating</label>
+                    <select name="rating" ng-model="newBook.rating" required>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <span class="error" ng-show="addBookForm.$dirty && addBookForm.rating.$error.required">
+                        Required.
+                    </span>
+                </div>
+                <div>
+                    <button type="submit" ng-disabled="addBookForm.$invalid">Add</button>
+                </div>
+            </form>
+            {{addBookForm.$dirty}}
+        </div>
+
+        <div>
+            <table>
+                <tr>
+                    <td>Item</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                </tr>
+                <tr ng-repeat="item in cart.items">
+                    <td>{{item.name}}</td>
+                    <td>{{item.price | currency:'&#8377;'}}</td>
+                    <td>{{item.qty}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Total Price</td>
+                    <td>{{cart.totalPrice | currency:'&#8377;'}}</td>
+                </tr>
+            </table>
+        </div>
+        <hr/>
+        <div>
+            <label>Show</label>
+            <a ng-class="{active:showBooks==2}" ng-click="showBooks=2">2</a> |
+            <a ng-class="{active:showBooks==books.length}" ng-click="showBooks=books.length">All</a>
+        </div>
+        <div>
+            <label>Sort by</label>
+            <a ng-class="{active:sortOrder=='title'}" ng-click="sortOrder='title'">Title</a> |
+            <a ng-class="{active:sortOrder=='price'}" ng-click="sortOrder='price'">Price &uarr;</a> |
+            <a ng-class="{active:sortOrder=='-price'}" ng-click="sortOrder='-price'">Price &darr;</a> |
+            <a ng-class="{active:sortOrder=='rating'}" ng-click="sortOrder='rating'">Rating</a>
+        </div>
+        <div ng-repeat="book in books | limitTo:showBooks | orderBy:sortOrder" ng-class="{high: book.rating > 3, low: book.rating <= 3}"
+            class="book">
+            <div><b>{{book.title | uppercase}}</b></div>
+            <div><i>{{book.author}}</i></div>
+            <div>{{book.price | currency:'&#8377;'}}</div>
+            <div>{{book.rating}}</div>
+            <hr/>
+            <button ng-click="rateUp(book)">&uarr;</button>
+            <button ng-click="rateDown(book)">&darr;</button>
+            <button ng-click="addToCart(book)">
+                    <img src="cart.png"/>
+                </button>
+        </div>
+    </div>
+
+</body>
+
+</html>
