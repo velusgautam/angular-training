@@ -1,0 +1,35 @@
+<html ng-app="booksCart">
+
+<head>
+    <title>Angular Training</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="vendor/angular.min.js"></script>
+    <script src="vendor/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="routes.js"></script>
+    <script src="controllers/bookCtrl.js"></script>
+    <script src="controllers/addBookCtrl.js"></script>
+    <script src="controllers/menuCtrl.js"></script>
+    <script src="controllers/cartCtrl.js"></script>
+    <script src="services/bookService.js"></script>
+    <script src="services/cartService.js"></script>
+    <script src="filters/titlecase.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <h2>BooksCart</h2>
+        <div ng-controller="menuCtrl">
+            <a ng-class="{active: isCurrent('/')}" href="#/">Home</a> |
+            <a ng-class="{active: isCurrent('/about')}" href="#/about">About</a> |
+            <a ng-class="{active: isCurrent('/new-book')}" href="#/new-book">Add Book</a> |
+            <a ng-class="{active: isCurrent('/cart')}" href="#/cart">Cart</a>
+        </div>
+    </div>
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+
+</body>
+
+</html>

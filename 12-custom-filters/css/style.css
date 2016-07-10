@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.high {
+    background-color: lightsalmon;
+}
+.low {
+    background-color: lightyellow;
+}
+.book {
+    padding: 5px;
+    border: 1px solid pink;
+    margin: 15px 5px;
+}
+img{
+    height: 11px;
+    width: 11px;
+}
+td {
+    background-color: lightgray;
+    padding: 3px;
+}
+label {
+    width: 70px;
+    display: inline-block;
+}
+form>div{
+    padding: 5px;
+}
+a{
+    color: blue;
+}
+.active {
+    text-decoration: underline;
+}
+.error{
+    color: red;
+}
+.header {
+    background-color: orange;
+    margin: 0;
+    padding: 10px;
+}
+h2 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+.container {
+    padding: 10px;
+}
+.header a {
+    text-decoration: none;
+    color: black;
+}
+.header a.active {
+    text-decoration: underline;
+}
