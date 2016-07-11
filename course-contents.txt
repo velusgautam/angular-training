@@ -22,8 +22,6 @@ ADVANCED
 17. Directives from jquery plugins
 18. Interceptors
 19. Authentication
-20. Advanced Routing Concepts
-21. Unit Testing
-22. e2e Testing
+20. Unit Testing
 
 

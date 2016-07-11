@@ -1,0 +1,6 @@
+<span 
+    ng-repeat="star in stars track by $index"
+    ng-click="updateStars($index)"
+    style="color:{{color}}">
+    {{star ? '&#9733;' : '&#9734;'}}
+</span>

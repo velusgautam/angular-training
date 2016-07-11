@@ -7,12 +7,12 @@
     <body>
         <h1>My first angular app</h1>
 
-        <div ng-controller="bookCtrl">
+        <div ng-controller="bookCtrl as ctrl">
             <div>
-                <div><b>{{book.title}}</b></div>
-                <div><i>{{book.author}}</i></div>
-                <div>{{book.price}}</div>
-                <div>{{book.rating}}</div>
+                <div><b>{{ctrl.book.title}}</b></div>
+                <div><i>{{ctrl.book.author}}</i></div>
+                <div>{{ctrl.book.price}}</div>
+                <div>{{ctrl.book.rating}}</div>
                 <hr/>
             </div>
         </div>

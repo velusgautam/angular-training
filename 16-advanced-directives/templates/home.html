@@ -1,0 +1,30 @@
+ <div>
+        <div>
+            <label>Show</label>
+            <a ng-class="{active:showBooks==2}" ng-click="showBooks=2">2</a> |
+            <a ng-class="{active:showBooks==books.length}" ng-click="showBooks=books.length">All</a>
+        </div>
+        <div>
+            <label>Sort by</label>
+            <a ng-class="{active:sortOrder=='title'}" ng-click="sortOrder='title'">Title</a> |
+            <a ng-class="{active:sortOrder=='price'}" ng-click="sortOrder='price'">Price &uarr;</a> |
+            <a ng-class="{active:sortOrder=='-price'}" ng-click="sortOrder='-price'">Price &darr;</a> |
+            <a ng-class="{active:sortOrder=='rating'}" ng-click="sortOrder='rating'">Rating</a>
+        </div>
+        <div ng-repeat="book in books | limitTo:showBooks | orderBy:sortOrder" ng-class="{high: book.rating > 3, low: book.rating <= 3}"
+            class="book">
+            <div><b>{{book.title | titlecase }}</b></div>
+            <div><i>{{book.author}}</i></div>
+            <div>{{book.price | currency:'&#8377;'}}</div>
+            <div>
+                {{book.rating}}
+                <star-widget points="book.rating" color="green"></star-widget>    
+            </div>
+            <hr/>
+            <button ng-click="rateUp(book)">&uarr;</button>
+            <button ng-click="rateDown(book)">&darr;</button>
+            <button ng-click="addToCart(book)">
+                    <img src="../css/cart.png"/>
+                </button>
+        </div>
+    </div>
