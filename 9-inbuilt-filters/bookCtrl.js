@@ -19,4 +19,16 @@ booksCart.controller('bookCtrl', function ($scope, bookService, cartService) {
     $scope.addToCart = function (book) {
         cartService.addToCart(book);
     };
+
+    $scope.highRated = function (book) {
+        return book.rating > 3;
+    };
+
+    $scope.cheap = function (book) {
+        return book.price < 15;
+    };
+
+    $scope.all = function (book) {
+        return true;
+    };
 });

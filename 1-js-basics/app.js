@@ -1,11 +1,7 @@
-function Person(name) {
-    this.name = name;
-    this.getName = function () {
-        return this.name;
-    };
-}
+fetchUsersFromDb(function (users) {
+    processUsers(users);
+    printUsers(users);
+});
 
-var person = new Person('David');
-var prince = new Person('Prince');
+doSOmethingElse();
 
-console.log(person);

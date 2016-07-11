@@ -76,7 +76,22 @@
             <a ng-class="{active:sortOrder=='-price'}" ng-click="sortOrder='-price'">Price &darr;</a> |
             <a ng-class="{active:sortOrder=='rating'}" ng-click="sortOrder='rating'">Rating</a>
         </div>
-        <div ng-repeat="book in books | limitTo:showBooks | orderBy:sortOrder" ng-class="{high: book.rating > 3, low: book.rating <= 3}"
+        <div>
+            <label>Text:</label>
+            <input type="text" ng-model="filterText"/>
+        </div>
+        <div>
+            <label>Fields:</label>
+            <input type="text" ng-model="filterObj.title" placeholder="Title">
+            <input type="text" ng-model="filterObj.author" placeholder="Author">
+        </div>
+        <div>
+            <label>Functions:</label>
+            <button ng-class="{active:filterFun==highRated}" ng-click="filterFun=highRated">high rated</button>
+            <button ng-class="{active:filterFun==cheap}" ng-click="filterFun=cheap">cheap</button>
+            <button ng-class="{active:filterFun==all}" ng-click="filterFun=all">all</button>
+        </div>
+        <div ng-repeat="book in books | limitTo:showBooks | orderBy:sortOrder | filter:filterText | filter:filterObj | filter:filterFun" ng-class="{high: book.rating > 3, low: book.rating <= 3}"
             class="book">
             <div><b>{{book.title | uppercase}}</b></div>
             <div><i>{{book.author}}</i></div>
