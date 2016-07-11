@@ -1,0 +1,18 @@
+<div>
+    <table>
+        <tr>
+            <td>Item</td>
+            <td>Price</td>
+            <td>Quantity</td>
+        </tr>
+        <tr ng-repeat="item in cart.items">
+            <td>{{item.name}}</td>
+            <td>{{item.price | currency:'&#8377;'}}</td>
+            <td>{{item.qty}}</td>
+        </tr>
+        <tr>
+            <td colspan="2">Total Price</td>
+            <td>{{cart.totalPrice | currency:'&#8377;'}}</td>
+        </tr>
+    </table>
+</div>
