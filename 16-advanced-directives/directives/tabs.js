@@ -1,7 +1,9 @@
 booksCart.directive('tabs', function () {
     return {
+        scope: true, 
         compile: function (element) {
             var finalHtml = '';
+            var tabs = element.find('tab');
 
             //style
             finalHtml += '<style>' +
@@ -24,7 +26,7 @@ booksCart.directive('tabs', function () {
             //header
             var tabHeaderHtml = '<div class="tab-headers">';
             var tabNum = 1;
-            $("tab").each(function () {
+            tabs.each(function () {
                 var tab = $(this);
                 tabHeaderHtml += '<span ng-class="{active: currentTab==' + tabNum + '}" ng-click="currentTab=' + tabNum + '">' + tab.attr('title') + '</span>';
                 tabNum++;
@@ -35,7 +37,7 @@ booksCart.directive('tabs', function () {
             //tabs
             var tabsHtml = '';
             var tabNum = 1;
-            $('tab').each(function () {
+            tabs.each(function () {
                 var tab = $(this);
                 tabsHtml += '<div class="tab" ng-show="currentTab==' + tabNum + '">' +
                     tab.html() +
