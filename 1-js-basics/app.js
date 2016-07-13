@@ -5,3 +5,4 @@ fetchUsersFromDb(function (users) {
 
 doSOmethingElse();
 
+

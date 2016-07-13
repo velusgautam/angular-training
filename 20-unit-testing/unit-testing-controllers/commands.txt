@@ -1,0 +1,8 @@
+//globally install karma
+sudo npm install -g karma-cli
+
+//local installs
+npm install
+
+//to start testing
+karma start
